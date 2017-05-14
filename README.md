@@ -1,4 +1,4 @@
-#iBoss
+## iBoss 
 
 Make iBoss
 
@@ -7,16 +7,14 @@ Make iBoss
 2. Make test !  
 3. Install sequelize, postgre, express
 4. Make new Model > task & department
-* make seeder
-* validation
+5. make seeder
+6. validation
 
-2. FrontEnd
- ..* Draw mockups
- ..* basicly it's a form 
- ..* Search the template
- ..* use EJS, store it in vews folder
+- FrontEnd
+1. Draw mockups
+2. basicly it's a form 
+3. Search the template
+4. use EJS, store it in vews folder
  
-1. First ordered list item
-2. Another item
-⋅⋅* Unordered sub-list. 
+
 
