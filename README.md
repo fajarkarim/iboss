@@ -2,11 +2,11 @@
 
 Make iBoss
 
-1. BackEnd 
-..* Make the database schema, create database
-..* Make test !  
-..* Install sequelize, postgre, express
-..* Make new Model > task & department
+- BackEnd 
+..1. Make the database schema, create database
+..2. Make test !  
+..3. Install sequelize, postgre, express
+..4. Make new Model > task & department
 ..* make seeder
 ..* validation
 
