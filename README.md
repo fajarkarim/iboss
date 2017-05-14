@@ -2,7 +2,7 @@
 
 Make iBoss
 
-- BackEnd 
+1. BackEnd 
 ..* Make the database schema, create database
 ..* Make test !  
 ..* Install sequelize, postgre, express
@@ -10,7 +10,7 @@ Make iBoss
 ..* make seeder
 ..* validation
 
-- FrontEnd
+2. FrontEnd
  ..* Draw mockups
  ..* basicly it's a form 
  ..* Search the template
