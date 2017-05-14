@@ -10,7 +10,7 @@ Make new Model > task & department
 make seeder
 validation
 
--FrontEnd
+- FrontEnd
 Draw mockups
 basicly it's a form 
 Search the template
