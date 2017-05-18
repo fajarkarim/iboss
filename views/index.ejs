@@ -20,7 +20,7 @@
       <%
       let all = [];
         for(let i=0;i<data.length;i++) {
-          arr.push(data[i].completion)
+          all.push(data[i].completion)
       %>
         <tr>
           <td>
@@ -37,7 +37,17 @@
       }
       %>
 
-<%%>
+<%
+let right = [];
+for(let j=0;j<all.length;j++) {
+  if(all[j] == true) {
+    right.push(all[j])
+  }
+}
+
+%>
+<p><%=percentage.getPercent(right.length,all.length)%></p>
+
           </div>
 </body>
 
