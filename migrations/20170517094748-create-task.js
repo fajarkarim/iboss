@@ -12,7 +12,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       deadline: {
-        type: Sequelize.DATE
+        type: Sequelize.STRING
       },
       completion: {
         type: Sequelize.BOOLEAN

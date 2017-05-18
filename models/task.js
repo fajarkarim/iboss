@@ -2,7 +2,7 @@
 module.exports = function(sequelize, DataTypes) {
   var Task = sequelize.define('Task', {
     name: DataTypes.STRING,
-    deadline: DataTypes.DATE,
+    deadline: DataTypes.STRING,
     completion: DataTypes.BOOLEAN,
     DepartmentId: DataTypes.INTEGER
   }, {
