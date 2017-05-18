@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>tes</title>
+
+  <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+
+<body>
+  <div class="center-align">
+    <h1>Assign Task to a Department</h1>
+    <div class="row">
+      <form class="col s12" action="/Kantors/add" method="post">
+        <div class="row">
+          <div class="col s12">
+            <div class="input-field inline">
+              <input placeholder="Nama" , id="Url" type="text" class="validate" name="nama">
+              <label for="nama"></label>
+            </div>
+
+            <select name="gedung">
+              <option value="" disabled selected>Gedung</option>
+              <%
+                data.forEach((d) => {
+              %>
+              <option value="1"><%=d.nama %></option>
+            <%
+          })
+          %>
+            </select>
+          </div>
+        </div>
+        <button class="waves-effect waves-light btn" type="submit">Add</button>
+      </form>
+    </div>
+  </div>
+
+  <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+</body>
+
+</html>
