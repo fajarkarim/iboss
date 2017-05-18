@@ -12,14 +12,14 @@ module.exports = {
         type: Sequelize.STRING
       },
       deadline: {
-        type: Sequelize.DATE
+        type: Sequelize.STRING
       },
       completion: {
         type: Sequelize.BOOLEAN
       },
-      deptId: {
+      DepartmentId: {
         type: Sequelize.INTEGER
-      }, 
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

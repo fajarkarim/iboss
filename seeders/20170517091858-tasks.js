@@ -14,23 +14,23 @@ module.exports = {
     */
     return queryInterface.bulkInsert('Tasks', [{
       name: "Meet and greet with users",
-      deadline: new Date,
+      deadline: "January",
       completion: false,
-      deptId: 1,
+      DepartmentId: 1,
       createdAt: new Date,
       updatedAt: new Date
     }, {
       name: "Go to market for inspection",
-      deadline: new Date,
+      deadline: "February",
       completion: false,
-      deptId: 2,
+      DepartmentId: 2,
       createdAt: new Date,
       updatedAt: new Date
     }, {
       name: "Blood donor event",
-      deadline: new Date,
+      deadline: "March",
       completion: false,
-      deptId: 3,
+      DepartmentId: 3,
       createdAt: new Date,
       updatedAt: new Date
     }], {})

@@ -2,9 +2,9 @@
 module.exports = function(sequelize, DataTypes) {
   var Task = sequelize.define('Task', {
     name: DataTypes.STRING,
-    deadline: DataTypes.DATE,
+    deadline: DataTypes.STRING,
     completion: DataTypes.BOOLEAN,
-    deptId: DataTypes.INTEGER
+    DepartmentId: DataTypes.INTEGER
   }, {
     classMethods: {
       associate: function(models) {
