@@ -18,22 +18,26 @@
 
     <tbody>
       <%
-        data.forEach((d) => {
+      let all = [];
+        for(let i=0;i<data.length;i++) {
+          arr.push(data[i].completion)
       %>
         <tr>
           <td>
-              <%= d.name %>
+              <%= data[i].name %>
           </td>
           <td>
-            <%= d.deadline %>
+            <%= data[i].deadline %>
           </td>
           <td>
-            <%- d.Department.name %>
+            <%- data[i].Department.name %>
           </td>
         </tr>
         <%
-      })
+      }
       %>
+
+<%%>
           </div>
 </body>
 
