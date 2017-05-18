@@ -18,6 +18,17 @@
               <label for="nama"></label>
             </div>
 
+            <select name="bulan">
+              <option value="" disabled selected>Month</option>
+              <%
+                data.forEach((d) => {
+              %>
+              <option value="1"><%=d.name %></option>
+            <%
+          })
+          %>
+            </select>
+
             <select name="gedung">
               <option value="" disabled selected>Departments</option>
               <%
