@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>tes</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <table class="striped">
+    <thead>
+      <tr>
+        <th>Url</th>
+        <th>Shortened Url</th>
+        <th>Visited</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%
+        data.forEach((d) => {
+      %>
+        <tr>
+          <td>
+              <%= d.name %>
+          </td>
+          <td>
+            <%= d.deadline %>
+          </td>
+          <td>
+            <%- d.Department.name %>
+          </td>
+        </tr>
+        <%
+      })
+      %>
+          </div>
+</body>
+
+</html>
