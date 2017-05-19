@@ -1,6 +1,5 @@
 module.exports = {
   getPercent(ok,nope) {
-    return `${(ok/nope)*100}%`
+    return `${Math.round((ok/nope)*100)}%`
   }
 };
-

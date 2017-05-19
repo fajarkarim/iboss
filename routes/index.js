@@ -16,12 +16,12 @@ router.post('/assign', (req, res, next) => {
   let task = req.body.task
   let month = req.body.bulan
   let dept = req.body.department
-  console.log(dept);
   db.Department.findOne({
     where:{
       name: dept
     }
   }).then((departemen) => {
+    console.log(departemen);
     db.Task.create({
       name: task,
       deadline: month,
@@ -46,6 +46,7 @@ router.get('/edit/:id', (req, res, next) => {
 router.post('/edit/:id', (req, res, next) => {
   let id = req.params.id;
   let ganti = req.body.task;
+  let complete = req.body.complete
   db.Task.findOne({
     where: {
       id: id
@@ -53,7 +54,8 @@ router.post('/edit/:id', (req, res, next) => {
   })
   .then((tugas) => {
     tugas.update({
-      name: ganti
+      name: ganti,
+      completion: complete
     })
     .then(()=>{
       res.redirect('/')
@@ -76,20 +78,83 @@ router.get('/delete/:id', (req, res, next) => {
 
 //untuk view
 router.get('/', (req, res, next) => {
-  db.Task.findAll({include: {model: db.Department}
+  db.Department.findAll()
+  .then( departements => {
+    let promises = [];
+    departements.forEach( (dept) =>{
+      let promise = new Promise( (res, rej) =>{
+        dept.getTasks().then( _tasks => {
+          obj = {name: dept.name, tasks: _tasks }
+          res(obj)
+        })
+
+      } )
+      promises.push(promise)
+
+    })
+    Promise.all(promises)
+    .then( _departements => {
+
+      res.render('index', {departments: _departements})
+    })
+    .catch( err => {
+
+    })
   })
-  .then((tasks) => {
-    res.render('index', { data: tasks, percentage: percent})
+  // db.Task.findAll({include: {model: db.Department}
+  // })
+  // .then((tasks) => {
+  //   res.render('index', { data: tasks, percentage: percent})
+  // })
+})
+
+router.get('/report', (req, res, next) => {
+  db.Department.findAll()
+  .then( departements => {
+    let promises = [];
+    departements.forEach( (dept) =>{
+      let promise = new Promise( (res, rej) =>{
+        dept.getTasks().then( _tasks => {
+          obj = {name: dept.name, tasks: _tasks }
+          res(obj)
+        })
+
+      } )
+      promises.push(promise)
+
+    })
+    Promise.all(promises)
+    .then( _departements => {
+
+      res.render('report', {departments: _departements, percentage: percent})
+    })
+    .catch( err => {
+
+    })
   })
 })
 
-//untuk persentase
-// router.get('/', (req, res, next) => {
-//   db.Task.findAll({include: {model: db.Department}
-//   })
-//   .then((tasks) => {
-//     console.log(tasks.completion);
-//   })
-// })
+//untuk search
+router.post('/search/', (req, res, next) => {
+  let search = req.body.search
+  db.Task.findAll({
+    include: {
+      model: db.Department
+    },
+    where: {
+      name: {
+        $like: `%${search}%`
+      }
+    }
+  })
+  .then((tasks) => {
+    res.render('search', { data: tasks})
+  })
+  .catch(err => {
+    res.render('error')
+  })
+})
+
+
 
 module.exports = router;

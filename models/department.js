@@ -6,7 +6,7 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        Department.hasMany(models.Task,{as : 'Department', foreignKey : 'DepartmentId'})
+        Department.hasMany(models.Task,{foreignKey : 'DepartmentId'})
       }
     }
   });

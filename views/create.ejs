@@ -1,23 +1,38 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8">
+    <title>Create Task | iBoss</title>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
 
-<head>
-  <title>tes</title>
+    <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-</head>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-wrapper ">
 
-<body>
-  <div class="center-align">
-    <h1>Assign Task to a Department</h1>
-    <div class="row">
-      <form class="col s12" action="/assign" method="post">
-        <div class="row">
-          <div class="col s12">
-            <div class="input-field inline">
-              <input placeholder="Task" , id="Task" type="text" class="validate" name="task">
-              <label for="task"></label>
-            </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <h1>Boss, Make your list</h1>
 
+        <div class="col s12 m4 l8">
+          <form class="" action="/assign" method="post" >
+            <input type="text" name="task" value="" placeholder="add new task">
+            <select name="department">
+              <option value="" selected disabled>Choose your Department</option>
+              <%
+                data.forEach((d) => {
+              %>
+              <option value="<%=d.name %>"><%=d.name %></option>
+            <%
+              })
+            %>
+            </select>
             <select name="bulan">
               <option value="" disabled selected>Month</option>
               <option value="January">January</option>
@@ -33,32 +48,24 @@
               <option value="November">November</option>
               <option value="December">December</option>
             </select>
-
-            <br>
-
-            <select name="department">
-              <option value="" disabled selected>Departments</option>
-              <%
-                data.forEach((d) => {
-              %>
-              <option value="<%=d.name %>"><%=d.name %></option>
-            <%
-          })
-          %>
-            </select>
-          </div>
+            <label>Materialize Select</label>
+            <button class="waves-effect waves-light btn-large" type="submit">Add</button>
+          </form>
         </div>
-        <button class="waves-effect waves-light btn" type="submit">Add</button>
-      </form>
+      </div>
     </div>
-  </div>
 
-  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-      <script type="text/javascript">
-        $('.tap-target').tapTarget('open');
-        $('.tap-target').tapTarget('close');
-      </script>
-</body>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+    <script type="text/javascript">
+      $('.tap-target').tapTarget('open');
+      $('.tap-target').tapTarget('close');
 
+      $(document).ready(function() {
+        $('select').material_select();
+      });
+
+    </script>
+
+  </body>
 </html>

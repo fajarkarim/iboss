@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>tes</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <table class="striped">
+    <thead>
+      <tr>
+        <th>Url</th>
+        <th>Shortened Url</th>
+        <th>Visited</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%
+      let all = [];
+        for(let i=0;i<data.length;i++) {
+          all.push(data[i].completion)
+      %>
+        <tr>
+          <td>
+              <%= data[i].name %>
+          </td>
+          <td>
+            <%= data[i].deadline %>
+          </td>
+          <td>
+            <%- data[i].Department.name %>
+          </td>
+        </tr>
+        <%
+      }
+      %>
+
+<%%>
+          </div>
+</body>
+
+</html>

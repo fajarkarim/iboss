@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Create Task | iBoss</title>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-wrapper ">
+
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <h1>Performance of Department</h1>
+        <div class="col s12 m4 l8">
+
+             <%
+             let trueCount = []
+             let falseCount = []
+
+             for (let i = 0; i< departments.length; i++) {
+               let countTrue = 0
+               let countFalse = 0
+               let deptTask = departments[i].tasks
+
+               for (let j = 0; j < deptTask.length; j++) {
+                 if (deptTask[j].completion) {
+                   countTrue++
+                 } else {
+                   countFalse++
+                 }
+               }
+               trueCount.push(countTrue)
+               falseCount.push(countFalse)
+             }
+             %>
+
+             <table>
+              <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Completion %</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <%
+
+                for (let i = 0; i< departments.length; i++) {
+
+                %>
+
+                <tr>
+                  <th><%= departments[i].name %></th>
+                  <th><%= percentage.getPercent(trueCount[i], falseCount[i]+trueCount[i]) %></th>
+                </tr>
+                <%
+              }
+                %>
+              </tbody>
+            </table>
+
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+    <script type="text/javascript">
+      $('.tap-target').tapTarget('open');
+      $('.tap-target').tapTarget('close');
+
+      $(document).ready(function() {
+        $('select').material_select();
+      });
+
+    </script>
+
+  </body>
+</html>
